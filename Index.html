@@ -22,6 +22,7 @@
             font-family: "Poppins", sans-serif;
             overflow: hidden;
             padding: 10px;
+            position: relative;
         }
 
         .container {
@@ -99,6 +100,26 @@
                 padding: 12px 20px;
             }
         }
+
+        /* Snow Effect Styles */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1.5rem;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 10;
+            animation: snow 10s linear infinite;
+        }
+
+        @keyframes snow {
+            to {
+                transform: translateY(100vh);
+                opacity: 0.3;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -114,15 +135,16 @@
     </div>
 
     <script>
-        const text = `Wishing you a day filled with the things that genuinely matter to you—peace, joy, and those small moments that actually make you smile. You deserve a year that hits different, one that brings new memories and the kind of happiness that actually lasts.
+        const text = `Wishing you a day filled with what actually matters—peace, joy, and those small moments that make you smile. You deserve a year that hits different, one that brings real memories and lasting happiness.
 
-It’s strange, isn’t it? We’ve never met in person, yet somehow this odd little connection of ours feels real. Every Valorant session with you is something I don’t mind looking forward to. Watching little kitten dart around as Neon or seeing malai clutch rounds like it’s nothing—yeah, that always hits harder than I admit. And every time you tell me how to hold an angle or bully me into buying you an OP after you die… well, somehow that sticks.
+It’s funny— we’ve never met, yet this odd little connection still feels real. Every Valorant session with you is something I actually look forward to. Watching the kitten zoom as Neon or seeing malai clutch like it’s nothing always hits harder than I admit. And every time you tell me how to hold an angle or bully me into buying you an OP… somehow that sticks too.
 
-I’ll remember the tiny things: your quick corrections that magically improve my aim, the random jokes mid-round, the unexpected moments that make the game a lot more fun than it should be. And maybe this year, just maybe, we’ll stack up more memories than whiffs—though knowing you, you’ll still blame me for the missed shots.
+I’ll remember the small things: your quick aim fixes, the mid-round jokes, the random moments that make the game way more fun than it should be. And maybe this year we’ll stack more memories than whiffs—though I know you’ll still blame me for the missed shots.
 
-And since your name, Anysha, means “light,” I guess it weirdly fits—because you do have this habit of brightening the space you walk into… even when you’re busy roasting me.
+Your name, Anysha, means “light,” and it fits—you really do brighten the space you’re in, even while roasting me.
 
-Enjoy your day, and make this year count. I’ll save the next OP for you—but only if you earn it this time.`;
+Enjoy your day, and make this year count. I’ll save you the next OP—if you earn it.`;
+
 
         let index = 0;
         const speed = 35;
@@ -163,6 +185,23 @@ Enjoy your day, and make this year count. I’ll save the next OP for you—but 
                 container.style.opacity = '1';
             }, 1200);
         });
+
+        // Snowflakes Animation
+        function createSnowflakes() {
+            const snowflakeCount = 50; // Number of snowflakes
+            for (let i = 0; i < snowflakeCount; i++) {
+                let snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowflake.innerHTML = "&#10052;"; // Unicode for snowflake
+                snowflake.style.left = Math.random() * 100 + "vw"; // Random x position
+                snowflake.style.animationDuration = Math.random() * 5 + 5 + "s"; // Random speed
+                snowflake.style.fontSize = Math.random() * 1.5 + 1 + "rem"; // Random size
+                snowflake.style.animationDelay = Math.random() * 5 + "s"; // Random delay
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes();
     </script>
 
 </body>
