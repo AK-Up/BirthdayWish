@@ -105,8 +105,8 @@
 
     <button id="startBtn">Click me, princess</button>
 
-    <!-- Empty iframe — source is added after user click to enable autoplay -->
-    <iframe id="musicPlayer" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+    <!-- LOCAL MUSIC FILE -->
+    <audio id="localMusic" src="Happy Birthday Flute.webm" loop></audio>
 
     <div class="container">
         <h1>Happy Birthday, Anysha! 🎂✨</h1>
@@ -147,9 +147,9 @@ Enjoy your day, and make this year count. I’ll save the next OP for you—but 
 
         btn.addEventListener('click', () => {
 
-            // *** FIX: Start music AFTER user interaction ***
-            document.getElementById("musicPlayer").src =
-                "https://www.youtube.com/embed/HzkaUh75lOY?autoplay=1&loop=1&playlist=HzkaUh75lOY";
+            // PLAY LOCAL AUDIO FILE
+            const audio = document.getElementById("localMusic");
+            audio.play();
 
             // Fade out button
             btn.style.transition = 'opacity 0.8s ease';
